@@ -11,24 +11,10 @@
   align-self: center;
 }
 
-@media screen and (max-width: 1024px) {
-  .profile__title {
-   
-  }
-}
-
-
 @media screen and (max-width: 920px) {
   .profile__title {
     max-width: 201px;
     font-size: 27px;
     line-height: 2.1;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .profile__title {
-   
-   
   }
 }
