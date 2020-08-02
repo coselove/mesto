@@ -1,0 +1,42 @@
+@import url(./__card/elements__card.css);
+@import url(./__image/elements__image.css);
+@import url(./__caption/elements__caption.css);
+@import url(./__heart/elements__heart.css);
+@import url(./__image-caption/elements__image-caption.css);
+
+.elements {
+  padding: 51px 199px 0 199px; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 18px;
+  row-gap: 21px;
+  border: 1px solid red;
+}
+
+@media screen and (max-width: 1024px) {
+  .elements {
+    padding: 36px 71px 0 71px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+
+@media screen and (max-width: 920px) {
+  .elements {
+    padding: 36px 160px 0 160px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .elements {
+    padding: 36px 19px 0 19px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+}
+
+

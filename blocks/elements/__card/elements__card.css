@@ -1,0 +1,10 @@
+.elements__card {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
