@@ -14,7 +14,7 @@
   border: 1px solid red;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   .elements {
     padding: 36px 71px 0 71px;
     grid-template-columns: repeat(3, 1fr);
