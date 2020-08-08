@@ -10,6 +10,12 @@
   background-repeat: no-repeat;
 }
 
+.profile__add-button:hover {
+  border: 2px solid rgba(255, 255, 255, .6);
+  background-image: url(../../../images/add-button-g.svg);
+  cursor: url(../../../images/hand.png), auto;
+}
+
 @media screen and (max-width: 920px) {
   .profile__add-button {
     width: 282px;

@@ -11,10 +11,9 @@
   grid-template-rows: repeat(2, 1fr);
   column-gap: 18px;
   row-gap: 21px;
-  border: 1px solid red;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
   .elements {
     padding: 36px 71px 0 71px;
     grid-template-columns: repeat(3, 1fr);

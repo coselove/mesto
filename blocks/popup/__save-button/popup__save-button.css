@@ -1,0 +1,29 @@
+.popup__save-button {
+  width: 83%;
+  height: 50px;
+  margin: auto;
+  margin-top: 48px;
+  margin-bottom: 36px;
+  border-radius: 2px;
+  background-color: #000000;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #ffffff;
+}
+
+.popup__save-button:hover {
+  background-color: rgba(0, 0, 0, .8);
+  cursor: url(../../../images/hand.png), auto;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__save-button {
+    height: 40px;
+    font-size: 14px;
+    margin-top: 36px;
+    margin-bottom: 30px;
+  }
+}
