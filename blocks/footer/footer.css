@@ -2,18 +2,17 @@
 
 .footer {
   padding: 66px 199px 60px 199px;
-  border: 1px solid red;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1279px) {
   .footer {
     padding: 36px 71px 60px 71px;
   }
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1023px) {
   .footer {
-    padding: 36px 160px 36px 160px;
+    padding: 36px 93px 36px 93px;
   }
 }
 

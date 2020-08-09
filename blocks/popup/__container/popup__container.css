@@ -3,26 +3,17 @@
   background-color: #ffffff;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  margin: 195px 425px 195px 425px;
   display: flex;
   flex-direction: column;
-}
-
-@media screen and (max-width: 1279px) {
-  .popup__container {
-    margin: 155px 425px 155px 425px;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .popup__container {
-    margin: 155px 169px 155px 169px;
-  }
+  position: relative;
+  margin-top: 195px;
+  align-self: center;
+  
 }
 
 @media screen and (max-width: 767px) {
   .popup__container {
     width: 240px;
-    margin: 155px 40px 155px 40px;
+    margin-top: 155px;
   }
 }

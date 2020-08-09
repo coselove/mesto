@@ -10,7 +10,6 @@
   grid-template-rows: repeat(2, 1fr);
   column-gap: 18px;
   row-gap: 21px;
-  border: 1px solid red;
 }
 
 @media screen and (max-width: 1279px) {
@@ -21,10 +20,9 @@
   }
 }
 
-
 @media screen and (max-width: 1023px) {
   .elements {
-    padding: 36px 221px 0 221px;
+    padding: 36px 93px 0 93px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
