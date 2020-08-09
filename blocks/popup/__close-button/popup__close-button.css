@@ -10,11 +10,12 @@
   position: fixed;
   top: 148px;
   right: 380px;
+  transition: background-image 1s linear;
 }
 
 .popup__close-button:hover {
-  background-image: url(../../../images/close-button-g.svg);
-  background-size: 71.4px;
+  background-image: url(../../../images/close-button-gch.svg);
+ 
   cursor: url(../../../images/hand.png), auto;
 }
 
@@ -25,11 +26,11 @@
     height: 30px;
     background-size: 30px;
     top: 121px;
-    right: 7px;
+    right: 395px;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .popup__close-button {
     width: 30px;
     height: 30px;
@@ -39,7 +40,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .popup__close-button {
     width: 30px;
     height: 30px;

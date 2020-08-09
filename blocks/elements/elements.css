@@ -1,8 +1,7 @@
-@import url(./__card/elements__card.css);
-@import url(./__image/elements__image.css);
-@import url(./__caption/elements__caption.css);
-@import url(./__heart/elements__heart.css);
-@import url(./__image-caption/elements__image-caption.css);
+@import url("./__image/elements__image.css");
+@import url("./__caption/elements__caption.css");
+@import url("./__heart/elements__heart.css");
+@import url("./__image-caption/elements__image-caption.css");
 
 .elements {
   padding: 51px 199px 0 199px; 
@@ -11,6 +10,7 @@
   grid-template-rows: repeat(2, 1fr);
   column-gap: 18px;
   row-gap: 21px;
+  border: 1px solid red;
 }
 
 @media screen and (max-width: 1279px) {
@@ -22,9 +22,9 @@
 }
 
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 1023px) {
   .elements {
-    padding: 36px 160px 0 160px;
+    padding: 36px 221px 0 221px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }

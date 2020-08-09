@@ -1,13 +1,9 @@
-
-@import url(../popup/__container/popup__container.css);
-@import url(../popup/__title/popup__title.css);
-@import url(../popup/__title/popup__title.css);
-@import url(../popup/__input-container/popup__input-container.css);
-@import url(../popup/__input-name/popup__input-name.css);
-@import url(../popup/__input-occupation/popup__input-occupation.css);
-@import url(../popup/__line/popup__line.css);
-@import url(../popup/__save-button/popup__save-button.css);
-@import url(../popup/__close-button/popup__close-button.css);
+@import url("../popup/__container/popup__container.css");
+@import url("../popup/__title/popup__title.css");
+@import url("../popup/__title/popup__title.css");
+@import url("../popup/__input-text/popup__input-text.css");
+@import url("../popup/__save-button/popup__save-button.css");
+@import url("../popup/__close-button/popup__close-button.css");
 
 
 
@@ -20,5 +16,6 @@
   display: none;
   flex-direction: column;
   background-color: rgba(0, 0, 0, .5);
+  border: 1px solid red;
 }
 
