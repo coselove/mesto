@@ -15,7 +15,6 @@
 
 .popup__close-button:hover {
   background-image: url(../../../images/close-button-gch.svg);
- 
   cursor: url(../../../images/hand.png), auto;
 }
 

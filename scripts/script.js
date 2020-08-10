@@ -9,6 +9,8 @@ let profilesubtitle = document.querySelector('.profile__subtitle');
 
 function popupOpen() {
   popup.classList.add('popup_opened');
+  nameInput.value = profiletitle.textContent
+  jobInput.value = profilesubtitle.textContent
 } 
 
 function popupClose() {
@@ -27,8 +29,6 @@ popupclose.addEventListener('click', popupClose);
 profileedit.addEventListener('click', popupOpen);
 
 formElement.addEventListener('submit', formSubmitHandler);
-
-popupclose.addEventListener('click', popupClose);
 
 
 
