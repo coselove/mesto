@@ -25,48 +25,7 @@
         <button class="profile__add-button" type="button"></button>
     </section>
     <section class="elements">
-      <figure class="card">
-        <img class="elements__image" src="./images/moscow.jpg" alt="Москва">
-        <div class="elements__caption">
-          <h3 class="elements__image-caption">Москва</h3>
-          <button class="elements__heart" type="button"></button>
-        </div>    
-      </figure>
-      <figure class="card">
-        <img class="elements__image" src="./images/saint-petersburg.jpg" alt="Санкт-Петербург">
-        <div class="elements__caption">
-          <h3 class="elements__image-caption">Санкт-Петербург</h3>
-          <button class="elements__heart" type="button"></button>
-        </div>    
-      </figure>
-      <figure class="card">
-        <img class="elements__image" src="./images/kazbek.jpg" alt="Казбек">
-        <div class="elements__caption">
-          <h3 class="elements__image-caption">Казбек</h3>
-          <button class="elements__heart" type="button"></button>
-        </div>    
-      </figure>
-      <figure class="card">
-        <img class="elements__image" src="./images/petergof.jpg" alt="Петергоф">
-        <div class="elements__caption">
-          <h3 class="elements__image-caption">Петергоф</h3>
-          <button class="elements__heart" type="button"></button>
-        </div>    
-      </figure>
-      <figure class="card">
-        <img class="elements__image" src="./images/sochi.jpg" alt="Сочи">
-        <div class="elements__caption">
-          <h3 class="elements__image-caption">Сочи</h3>
-          <button class="elements__heart" type="button"></button>
-        </div>    
-      </figure>
-      <figure class="card">
-        <img class="elements__image" src="./images/rostov-on-don.jpg" alt="Ростов-на-Дону">
-        <div class="elements__caption">
-          <h3 class="elements__image-caption">Ростов-на-Дону</h3>
-          <button class="elements__heart" type="button"></button>
-        </div>    
-      </figure>
+
     </section>
     <section class="footer">
       <h3 class="footer__copyright">&copy; 2020 Mesto Russia</h3>
@@ -80,7 +39,33 @@
           <button class="popup__save-button">Сохранить</button>
         </form>
     </section> 
+    <section class="popup-card">
+      <form class="popup-card__container" name="popup-card-container">
+        <button class="popup-card__close-button" type="button"></button>
+        <h2 class="popup-card__title">Новое место</h2>
+        <input class="popup-card__input-text popup-card__input-text_place" type="text" name="name" placeholder="Название">
+        <input class="popup-card__input-text popup-card__input-text_cite" type="text" name="occupation" placeholder="Ссылка на картинку">
+        <button class="popup-card__create-button">Создать</button>
+      </form>
+    </section>
+    <section class="popup-image">
+      <figure class="popup-image__container">
+        <button class="popup-image__close-button" type="button"></button>
+        <img class="popup-image__image" src="" alt="">
+        <h3 class="popup-image__image-caption"></h3>
+      </figure>
+    </section>
   </main> 
+  <template id="card-template">
+    <figure class="card">
+    <img class="card__image" src="" alt="">
+        <div class="card__caption">
+          <h3 class="card__image-caption"></h3>
+          <button class="card__heart" type="button"></button>
+          <button class="card__trash"></button>
+        </div>
+      </figure>    
+  </template>
   <script src="./scripts/script.js"></script> 
 </body>
 </html>
