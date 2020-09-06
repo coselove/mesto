@@ -112,46 +112,27 @@ function deleteCard(event) {
 }
 
 function submitFormHandlerP(evt) {
-  
+
   evt.preventDefault();
-  
-  const cardElement = cardTemplate.cloneNode(true);
 
-  cardElement.querySelector('.card__image').src = citeInput.value;
-  cardElement.querySelector('.card__image-caption').textContent = placeInput.value;
- 
-  const likeButton = cardElement.querySelector('.card__heart');
-  
-  likeButton.addEventListener('click', like);
+  sectionElements.prepend(newCard({link: citeInput.value, name: placeInput.value}));
 
-  const deleteButton = cardElement.querySelector('.card__trash');
-
-  deleteButton.addEventListener('click', deleteCard);
-
-  const imageBtn = cardElement.querySelector('.card__image');
-
-  imageBtn.addEventListener('click', imagePopupOpen);
-
-  closeImgPopup.addEventListener('click', closeImagePopup); 
-
-  sectionElements.prepend(cardElement);
- 
   closeCardPopup(); 
 }
-
-const newCard = card => {
-
-const cardElement = cardTemplate.cloneNode(true);
-
-cardElement.querySelector('.card__image').src = card.link;
-cardElement.querySelector('.card__image-caption').textContent = card.name;
 
 profileAdd.addEventListener('click', openCardPopup);
 
 cardPopupClose.addEventListener('click', closeCardPopup);
 
-cardFormElement.addEventListener('submit', submitFormHandlerP);
+cardFormElement.addEventListener('submit', submitFormHandlerP); 
 
+const newCard = (card) => {
+
+const cardElement = cardTemplate.cloneNode(true);
+
+cardElement.querySelector('.card__image').src = card.link;
+cardElement.querySelector('.card__image-caption').textContent = card.name;
+console.log('stop');
 const likeButton = cardElement.querySelector('.card__heart');
 
 likeButton.addEventListener('click', like);
@@ -166,12 +147,14 @@ imageBtn.addEventListener('click', imagePopupOpen);
 
 closeImgPopup.addEventListener('click', closeImagePopup);
 
-sectionElements.append(cardElement);
+return cardElement;
+
 }
 
-initialCards.forEach(newCard); 
 
-
+initialCards.forEach(card =>{
+  sectionElements.append(newCard(card));
+}); 
 
 
 
