@@ -1,22 +1,26 @@
 const profileedit = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('.popup');
-const popupclose = document.querySelector('.popup__close-button');
-const formElement = document.querySelector('.popup__container');
-const nameInput = document.querySelector('.popup__input-text_name');
-const jobInput = document.querySelector('.popup__input-text_occupation');
+const popupclose = profilePopup.querySelector('.popup__close-button');
+const formElement = profilePopup.querySelector('.popup__container');
+const formOverlay = profilePopup.querySelector('.popup__overlay');
+const nameInput = profilePopup.querySelector('.popup__input-text_name');
+const jobInput = profilePopup.querySelector('.popup__input-text_occupation');
 const profiletitle = document.querySelector('.profile__title');
 const profilesubtitle = document.querySelector('.profile__subtitle');
 const profileAdd = document.querySelector('.profile__add-button'); 
-const cardPopup = document.querySelector('.popup-card');
-const cardPopupClose = document.querySelector('.popup-card__close-button');
-const placeInput = document.querySelector('.popup-card__input-text_place');
-const citeInput = document.querySelector('.popup-card__input-text_cite');
-const imagePopup = document.querySelector('.popup-image');
-const cardElementZoom = document.querySelector('.popup-image__image');
-const cardElementCaption = document.querySelector('.popup-image__image-caption');
+const cardPopup = document.querySelector('#card');
+const cardFormElement = cardPopup.querySelector('.popup__container');
+const cardFormOverlay = cardPopup.querySelector('.popup__overlay');
+const cardPopupClose =  cardPopup.querySelector('.popup__close-button');
+const placeInput = cardPopup.querySelector('.popup__input-text_place');
+const citeInput = cardPopup.querySelector('.popup__input-text_cite');
+const imagePopup = document.querySelector('#image');
+const cardElementZoom = imagePopup.querySelector('.popup-image__image');
+const cardElementCaption = imagePopup.querySelector('.popup-image__image-caption');
 const cardTemplate = document.querySelector('#card-template').content;
-const closeImgPopup = document.querySelector('.popup-image__close-button');
-const cardFormElement = document.querySelector('.popup-card__container');
+const imageFormOverlay = imagePopup.querySelector('.popup__overlay');
+const closeImgPopup = imagePopup.querySelector('.popup__close-button');
+
 
 const sectionElements = document.querySelector('.elements');
 const initialCards = [
@@ -76,6 +80,16 @@ profileedit.addEventListener('click', openProfilePopup);
 
 popupclose.addEventListener('click', closeProfilePopup);
 
+function keyHandlerProfile(evt) {
+  if (evt.key === 'Escape') {
+  closeProfilePopup();
+  }
+  };
+
+document.addEventListener('keydown', keyHandlerProfile); 
+
+formOverlay.addEventListener('click', closeProfilePopup);
+
 formElement.addEventListener('submit', submitFormHandler);
 
 
@@ -120,11 +134,27 @@ function submitFormHandlerP(evt) {
   closeCardPopup(); 
 }
 
+function keyHandlerCard(evt) {
+  if (evt.key === 'Escape') {
+    closeCardPopup();
+  }
+}
+
 profileAdd.addEventListener('click', openCardPopup);
 
 cardPopupClose.addEventListener('click', closeCardPopup);
 
+cardFormOverlay.addEventListener('click', closeCardPopup);
+
+document.addEventListener('keydown', keyHandlerCard);
+
 cardFormElement.addEventListener('submit', submitFormHandlerP); 
+
+function keyHandlerImage(evt) {
+  if (evt.key === 'Escape') {
+    closeImagePopup();
+  }
+}
 
 const newCard = (card) => {
 
@@ -132,7 +162,7 @@ const cardElement = cardTemplate.cloneNode(true);
 
 cardElement.querySelector('.card__image').src = card.link;
 cardElement.querySelector('.card__image-caption').textContent = card.name;
-console.log('stop');
+
 const likeButton = cardElement.querySelector('.card__heart');
 
 likeButton.addEventListener('click', like);
@@ -147,14 +177,15 @@ imageBtn.addEventListener('click', imagePopupOpen);
 
 closeImgPopup.addEventListener('click', closeImagePopup);
 
+imageFormOverlay.addEventListener('click', closeImagePopup);
+
+document.addEventListener('keydown', keyHandlerImage);
+
 return cardElement;
 
 }
 
 
-initialCards.forEach(card =>{
+initialCards.forEach(card => {
   sectionElements.append(newCard(card));
-}); 
-
-
-
+});

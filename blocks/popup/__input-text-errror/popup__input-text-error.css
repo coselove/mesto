@@ -1,0 +1,14 @@
+.popup__input-text-error {
+  max-width: 358px;
+  margin: 0;
+  color: #ff0000;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.21;
+  border: 0;
+  margin: 0 36px 0 36px;
+  padding: 0 0 13px 0;
+  visibility: hidden;
+}

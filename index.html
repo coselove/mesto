@@ -31,26 +31,33 @@
       <h3 class="footer__copyright">&copy; 2020 Mesto Russia</h3>
     </section> 
     <section class="popup">
-        <form class="popup__container" name="popup-container">
+        <div class="popup__overlay"></div>
+        <form class="popup__container" name="popup-container" novalidate>
           <button class="popup__close-button" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input-text popup__input-text_name" type="text" name="name" placeholder="Жак-Ив Кусто">
-          <input class="popup__input-text popup__input-text_occupation" type="text" name="occupation" placeholder="Исследователь океана">
-          <button class="popup__save-button">Сохранить</button>
+          <input id="name-input" class="popup__input-text popup__input-text_name" type="text" name="name" minlength="2" maxlength="40" placeholder="Жак-Ив Кусто" required>
+          <span id="name-input-error" class="popup__input-text-error"></span>
+          <input id="job-input"class="popup__input-text popup__input-text_occupation" type="text" name="occupation" minlength="2" maxlength="200" placeholder="Исследователь океана" required>
+          <span id="job-input-error" class="popup__input-text-error"></span>
+          <button class="popup__save-button" disabled>Сохранить</button>
         </form>
     </section> 
-    <section class="popup-card">
-      <form class="popup-card__container" name="popup-card-container">
-        <button class="popup-card__close-button" type="button"></button>
-        <h2 class="popup-card__title">Новое место</h2>
-        <input class="popup-card__input-text popup-card__input-text_place" type="text" name="name" placeholder="Название">
-        <input class="popup-card__input-text popup-card__input-text_cite" type="text" name="occupation" placeholder="Ссылка на картинку">
-        <button class="popup-card__create-button">Создать</button>
+    <section id="card" class="popup">
+      <div class="popup__overlay"></div>
+      <form class="popup__container" name="popup-card-container" novalidate>
+        <button class="popup__close-button" type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <input id="name-input" class="popup__input-text popup__input-text_place" type="text" name="name" minlength="2" maxlength="30" placeholder="Название" required>
+        <span id="name-input-error" class="popup__input-text-error"></span>
+        <input id="cite-input" class="popup__input-text popup__input-text_cite" type="url" name="occupation" placeholder="Ссылка на картинку" required>
+        <span id="cite-input-error" class="popup__input-text-error"></span>
+        <button class="popup__save-button" disabled>Создать</button>
       </form>
     </section>
-    <section class="popup-image">
+    <section id="image" class="popup">
+      <div class="popup__overlay"></div>
       <figure class="popup-image__container">
-        <button class="popup-image__close-button" type="button"></button>
+        <button class="popup__close-button" type="button"></button>
         <img class="popup-image__image" src="" alt="">
         <h3 class="popup-image__image-caption"></h3>
       </figure>
@@ -67,5 +74,6 @@
       </figure>    
   </template>
   <script src="./scripts/script.js"></script> 
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
