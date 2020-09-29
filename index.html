@@ -1,79 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body class="page">
-  <header class="header">
-    <img class="header__logo" src="./images/header-logo.svg" alt="Логотип сайта Mesto">
-  </header>
-  <main>
-    <section class="profile">
-      <div class="profile__main">
-        <img class="profile__avatar" src="./images/jacques-yves_cousteau.jpg" alt="Жак-Ив Кусто">
-        <div class="profile__info">
-          <div class="profile__edit">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button"></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        class="header__logo"
+        src="./images/header-logo.svg"
+        alt="Логотип сайта Mesto"
+      />
+    </header>
+    <main>
+      <section class="profile">
+        <div class="profile__main">
+          <img
+            class="profile__avatar"
+            src="./images/jacques-yves_cousteau.jpg"
+            alt="Жак-Ив Кусто"
+          />
+          <div class="profile__info">
+            <div class="profile__edit">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <button class="profile__edit-button" type="button"></button>
+            </div>
+            <p class="profile__subtitle">Исследователь океана</p>
           </div>
-          <p class="profile__subtitle">Исследователь океана</p>
-        </div>  
-      </div>
+        </div>
         <button class="profile__add-button" type="button"></button>
-    </section>
-    <section class="elements">
-
-    </section>
-    <section class="footer">
-      <h3 class="footer__copyright">&copy; 2020 Mesto Russia</h3>
-    </section> 
-    <section class="popup">
+      </section>
+      <section class="elements"></section>
+      <section class="footer">
+        <h3 class="footer__copyright">&copy; 2020 Mesto Russia</h3>
+      </section>
+      <section class="popup">
         <div class="popup__overlay"></div>
         <form class="popup__container" name="popup-container" novalidate>
           <button class="popup__close-button" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input id="name-input" class="popup__input-text popup__input-text_name" type="text" name="name" minlength="2" maxlength="40" placeholder="Жак-Ив Кусто" required>
+          <input
+            id="name-input"
+            class="popup__input-text popup__input-text_name"
+            type="text"
+            name="name"
+            minlength="2"
+            maxlength="40"
+            placeholder="Жак-Ив Кусто"
+            required
+          />
           <span id="name-input-error" class="popup__input-text-error"></span>
-          <input id="job-input"class="popup__input-text popup__input-text_occupation" type="text" name="occupation" minlength="2" maxlength="200" placeholder="Исследователь океана" required>
+          <input
+            id="job-input"
+            class="popup__input-text popup__input-text_occupation"
+            type="text"
+            name="occupation"
+            minlength="2"
+            maxlength="200"
+            placeholder="Исследователь океана"
+            required
+          />
           <span id="job-input-error" class="popup__input-text-error"></span>
           <button class="popup__save-button" disabled>Сохранить</button>
         </form>
-    </section> 
-    <section id="card" class="popup">
-      <div class="popup__overlay"></div>
-      <form class="popup__container" name="popup-card-container" novalidate>
-        <button class="popup__close-button" type="button"></button>
-        <h2 class="popup__title">Новое место</h2>
-        <input id="name-input" class="popup__input-text popup__input-text_place" type="text" name="name" minlength="2" maxlength="30" placeholder="Название" required>
-        <span id="name-input-error" class="popup__input-text-error"></span>
-        <input id="cite-input" class="popup__input-text popup__input-text_cite" type="url" name="occupation" placeholder="Ссылка на картинку" required>
-        <span id="cite-input-error" class="popup__input-text-error"></span>
-        <button class="popup__save-button" disabled>Создать</button>
-      </form>
-    </section>
-    <section id="image" class="popup">
-      <div class="popup__overlay"></div>
-      <figure class="popup-image__container">
-        <button class="popup__close-button" type="button"></button>
-        <img class="popup-image__image" src="" alt="">
-        <h3 class="popup-image__image-caption"></h3>
-      </figure>
-    </section>
-  </main> 
-  <template id="card-template">
-    <figure class="card">
-    <img class="card__image" src="" alt="">
+      </section>
+      <section id="card" class="popup">
+        <div class="popup__overlay"></div>
+        <form class="popup__container" name="popup-card-container" novalidate>
+          <button class="popup__close-button" type="button"></button>
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            id="name-input-card"
+            class="popup__input-text popup__input-text_place"
+            type="text"
+            name="name"
+            minlength="2"
+            maxlength="30"
+            placeholder="Название"
+            required
+          />
+          <span
+            id="name-input-card-error"
+            class="popup__input-text-error"
+          ></span>
+          <input
+            id="cite-input"
+            class="popup__input-text popup__input-text_cite"
+            type="url"
+            name="occupation"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <span id="cite-input-error" class="popup__input-text-error"></span>
+          <button class="popup__save-button" disabled>Создать</button>
+        </form>
+      </section>
+      <section id="image" class="popup">
+        <div class="popup__overlay"></div>
+        <figure class="popup-image__container">
+          <button class="popup__close-button" type="button"></button>
+          <img class="popup-image__image" src="" alt="" />
+          <h3 class="popup-image__image-caption"></h3>
+        </figure>
+      </section>
+    </main>
+    <template id="card-template">
+      <figure class="card">
+        <img class="card__image" src="" alt="" />
         <div class="card__caption">
           <h3 class="card__image-caption"></h3>
           <button class="card__heart" type="button"></button>
           <button class="card__trash"></button>
         </div>
-      </figure>    
-  </template>
-  <script src="./scripts/script.js"></script> 
-  <script src="./scripts/validate.js"></script>
-</body>
+      </figure>
+    </template>
+    <script src="./scripts/initialcards.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
+  </body>
 </html>
