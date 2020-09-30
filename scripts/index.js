@@ -26,17 +26,19 @@ const sectionElements = document.querySelector(".elements");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keydown", keyHandler);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", keyHandler);
 }
 
-function keyHandler(evt, popup) {
+const keyHandler = (evt) => {
   if (evt.key === "Escape") {
-    closePopup(popup);
+    closePopup(document.querySelector(".popup_opened"));
   }
-}
+};
 
 function submitFormHandler(evt) {
   evt.preventDefault();
@@ -57,10 +59,6 @@ popupClose.addEventListener("click", function () {
 
 formOverlay.addEventListener("click", function () {
   closePopup(profilePopup);
-});
-
-document.addEventListener("keydown", function (evt) {
-  keyHandler(evt, profilePopup);
 });
 
 formElement.addEventListener("submit", submitFormHandler);
@@ -95,10 +93,6 @@ cardFormOverlay.addEventListener("click", function () {
   closePopup(cardPopup);
 });
 
-document.addEventListener("keydown", function (evt) {
-  keyHandler(evt, cardPopup);
-});
-
 cardFormElement.addEventListener("submit", submitFormHandlerP);
 
 closeImgPopup.addEventListener("click", function () {
@@ -109,15 +103,12 @@ imageFormOverlay.addEventListener("click", function () {
   closePopup(imagePopup);
 });
 
-document.addEventListener("keydown", function (evt) {
-  keyHandler(evt, imagePopup);
-});
-
 const newCard = (card) => {
   const cardElement = cardTemplate.cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
 
-  cardElement.querySelector(".card__image").src = card.link;
-  cardElement.querySelector(".card__image").alt = card.name;
+  cardImage.src = card.link;
+  cardImage.alt = card.name;
   cardElement.querySelector(".card__image-caption").textContent = card.name;
 
   const likeButton = cardElement.querySelector(".card__heart");

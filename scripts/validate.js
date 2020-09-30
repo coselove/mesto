@@ -1,8 +1,4 @@
 const showInputError = (formSelector, inputSelector, params, errorMessage) => {
-  params.formSelector;
-  params.inputSelector;
-  params.inputErrorClass;
-  params.errorClass;
   const errorElement = formSelector.querySelector(`#${inputSelector.id}-error`);
   inputSelector.classList.add(params.inputErrorClass);
   errorElement.textContent = errorMessage;
@@ -10,10 +6,6 @@ const showInputError = (formSelector, inputSelector, params, errorMessage) => {
 };
 
 const hideInputError = (formSelector, inputSelector, params) => {
-  params.formSelector;
-  params.inputSelector;
-  params.inputErrorClass;
-  params.errorClass;
   const errorElement = formSelector.querySelector(`#${inputSelector.id}-error`);
   inputSelector.classList.remove(params.inputErrorClass);
   errorElement.classList.remove(params.errorClass);
@@ -21,8 +13,6 @@ const hideInputError = (formSelector, inputSelector, params) => {
 };
 
 const isValid = (formSelector, inputSelector, params) => {
-  params.formSelector;
-  params.inputSelector;
   if (!inputSelector.validity.valid) {
     showInputError(
       formSelector,
@@ -36,7 +26,6 @@ const isValid = (formSelector, inputSelector, params) => {
 };
 
 const toggleButtonState = (inputList, buttonSave, params) => {
-  params.inactiveButtonClass;
   if (hasInvalidInput(inputList)) {
     buttonSave.setAttribute("disabled", true);
     buttonSave.classList.add(params.inactiveButtonClass);
@@ -47,9 +36,6 @@ const toggleButtonState = (inputList, buttonSave, params) => {
 };
 
 const setEventListeners = (formSelector, params) => {
-  params.formSelector;
-  params.inputSelector;
-  params.submitButtonSelector;
   const inputList = Array.from(
     formSelector.querySelectorAll(params.inputSelector)
   );
@@ -70,7 +56,6 @@ const hasInvalidInput = (inputList) => {
 };
 
 const enableValidation = (params) => {
-  params.formSelector;
   const formList = Array.from(document.querySelectorAll(params.formSelector));
   formList.forEach((formSelector) => {
     formSelector.addEventListener("submit", (evt) => {
