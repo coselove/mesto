@@ -11,7 +11,6 @@ constructor(formSelector, params) {
 }
 _showInputError(inputSelector, errorMessage) {
   const errorElement = this._formElement.querySelector(`#${inputSelector.id}-error`);
-  console.log(errorElement);
   inputSelector.classList.add(this._inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(this._errorClass);
@@ -72,3 +71,4 @@ this._formElement.addEventListener("submit", (evt) => {
     this._setEventListeners(this._formElement);
 };
 }
+

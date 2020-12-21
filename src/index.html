@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <header class="header">
       <img
         class="header__logo"
-        src="./images/header-logo.svg"
+        src="<%=require('./images/header-logo.svg')%>"
         alt="Логотип сайта Mesto"
       />
     </header>
@@ -19,7 +18,7 @@
         <div class="profile__main">
           <img
             class="profile__avatar"
-            src="./images/jacques-yves_cousteau.jpg"
+            src="<%=require('./images/jacques-yves_cousteau.jpg')%>"
             alt="Жак-Ив Кусто"
           />
           <div class="profile__info">
@@ -116,6 +115,5 @@
         </div>
       </figure>
     </template>
-    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>
