@@ -1,7 +1,7 @@
 
 
 .elements {
-  padding: 51px 199px 0 199px; 
+  padding: 51px 199px 0 199px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
