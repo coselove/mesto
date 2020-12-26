@@ -23,9 +23,28 @@ const cardTemplate = document.querySelector("#card-template").content;
 const imageFormOverlay = imagePopup.querySelector(".popup__overlay");
 const closeImgPopup = imagePopup.querySelector(".popup__close-button");
 const sectionElements = document.querySelector(".elements");
-export {profileEdit, profilePopup, popupClose, formElement, formOverlay, 
-nameInput, jobInput, profileTitle, profileSubtitle, profileAdd, cardPopup,
-cardFormElement, cardFormOverlay, cardPopupClose, placeInput, citeInput,
-imagePopup, cardElementZoom, cardElementCaption, cardTemplate, imageFormOverlay,
-closeImgPopup, sectionElements};
-
+export {
+  profileEdit,
+  profilePopup,
+  popupClose,
+  formElement,
+  formOverlay,
+  nameInput,
+  jobInput,
+  profileTitle,
+  profileSubtitle,
+  profileAdd,
+  cardPopup,
+  cardFormElement,
+  cardFormOverlay,
+  cardPopupClose,
+  placeInput,
+  citeInput,
+  imagePopup,
+  cardElementZoom,
+  cardElementCaption,
+  cardTemplate,
+  imageFormOverlay,
+  closeImgPopup,
+  sectionElements,
+};
