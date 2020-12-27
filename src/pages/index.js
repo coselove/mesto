@@ -14,11 +14,11 @@ import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 import "./index.css";
 
-const FormValidatorEdit = new FormValidator(params.formSelectorPoup, params);
-FormValidatorEdit.enableValidation();
+const formValidatorEdit = new FormValidator(params.formSelectorPoup, params);
+formValidatorEdit.enableValidation();
 
-const FormValidatorAdd = new FormValidator(params.formSelectorCard, params);
-FormValidatorAdd.enableValidation();
+const formValidatorAdd = new FormValidator(params.formSelectorCard, params);
+formValidatorAdd.enableValidation();
 
 const imagePopup = new PopupWithImage("#image");
 imagePopup.setEventListeners();
@@ -77,21 +77,11 @@ profileEdit.addEventListener("click", () => {
 const popupCard = new PopupWithForm({
   popupSelector: "#card",
   submitFormHandler: (data) => {
-    const createNewCard = new Card(
-      {
-        data: {
-          link: data["cite"],
-          name: data["place"],
-        },
-        handleCardClick: (data) => {
-          imagePopup.openPopup(data);
-        },
-      },
-      "#card-template"
-    );
-
-    const cardNewElement = createNewCard.generateCard(data);
-    cardList.addItemP(cardNewElement);
+    const cardNewElement = createNewCard({
+      link: data["cite"],
+      name: data["place"]
+    });
+    cardList.addItemPrepend(cardNewElement); 
   },
 });
 
