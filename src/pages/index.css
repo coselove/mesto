@@ -8,5 +8,9 @@
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/card/_heart-like/card_heart-like.css");
+@import url("../blocks/card/__like-counter/card__like-counter.css");
+@import url("../blocks/card/_active/card__like-counter_active.css");
 @import url("../blocks/popup-image/popup-image.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
+@import url("../blocks/popup-delete/popup-delete.css");
+@import url("../blocks/card/_trash-hiden/card_trash-hiden.css");

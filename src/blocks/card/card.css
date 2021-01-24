@@ -3,7 +3,7 @@
 @import url('../card/__image/card__image.css');
 @import url('../card/__image-caption/card__image-caption.css');
 @import url('../card/__trash/card__trash.css');
-
+@import url('../card/__like/card__like.css');
 
 .card {
   width: 100%;

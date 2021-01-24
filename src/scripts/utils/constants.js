@@ -23,6 +23,7 @@ const cardTemplate = document.querySelector("#card-template").content;
 const imageFormOverlay = imagePopup.querySelector(".popup__overlay");
 const closeImgPopup = imagePopup.querySelector(".popup__close-button");
 const sectionElements = document.querySelector(".elements");
+
 export {
   profileEdit,
   profilePopup,
