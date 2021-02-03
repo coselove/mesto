@@ -26,26 +26,43 @@ formValidatorAdd.enableValidation();
 const imagePopup = new PopupWithImage("#image");
 imagePopup.setEventListeners();
 
-const delPopup = new PopupWithDelete("#delete");
+const delPopup = new PopupWithDelete("#delete", {
+  submitFormHandler: (cardId, data, api) => {
+    api.delCard(`cards/${cardId}`) 
+  .then(() => {
+    data.remove()
+  })
+  }
+});
 delPopup.setEventListeners();
+
+const userInform = new UserInfo({
+  userName: document.querySelector(".profile__title"),
+  userJob: document.querySelector(".profile__subtitle"),
+  avatar: document.querySelector(".profile__avatar"),
+}); 
 
 const createNewCard = (data) => {
   const card = new Card(
     {
       data: data,
+      userId: userInform.getUserInfo().id, 
       handleCardClick: () => {
         imagePopup.openPopup(data);
       },
-      handleDeleteBtnClick: () => {
+      handleDeleteBtnClick: (cardId, data, api) => {
         console.log('delete');
-        delPopup.openPopup();
-      }
+        delPopup.openPopup(cardId, data, api);
+      },
+      api: api,
     },
-    "#card-template"
+    "#card-template",
   );
   const cardElement = card.generateCard();
   return cardElement;
 };
+
+
 /*
 const cardList = new Section(
   {
@@ -60,11 +77,7 @@ const cardList = new Section(
 
 cardList.renderItems(); */
 
-const userInform = new UserInfo({
-  userName: document.querySelector(".profile__title"),
-  userJob: document.querySelector(".profile__subtitle"),
-  avatar: document.querySelector(".profile__avatar"),
-}); 
+
 /*
 const popupProfile = new PopupWithForm({
   popupSelector: "#profile",
@@ -117,11 +130,6 @@ const cardList = new Section(
   },
   ".elements"
 );
-
-api.getInitialCards()
-  .then(res => {
-    cardList.renderItems(res);
-  })
  
 api.getUserInfo()
   .then(res => {
@@ -136,9 +144,10 @@ const popupProfile = new PopupWithForm({
     userInform.setUserInfo({
       name: res['name'],
       about: res['about'],
-      avatar: res['avatar'],
-      id: res['id'] 
-    }); 
+     /* avatar: res['avatar'],
+      id: res['_id'] */
+    });
+    console.log(res['_id']); 
   })  
   },
 }); 
@@ -161,6 +170,10 @@ const popupCard = new PopupWithForm({
 
 popupCard.setEventListeners();
 
+api.getInitialCards()
+  .then(res => {
+    cardList.renderItems(res);
+  })
 
 /*
 const deletePopup = new PopupWithDelete("#delete");

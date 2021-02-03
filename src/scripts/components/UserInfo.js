@@ -1,9 +1,9 @@
 export default class UserInfo {
-  constructor({ userName, userJob, avatar, id }) {
+  constructor({ userName, userJob, avatar}) {
     this._userName = userName;
     this._userJob = userJob;
     this._avatar = avatar;
-    this._id = id;
+    this._id;
   }
 
   getUserInfo() {
@@ -19,10 +19,13 @@ export default class UserInfo {
     this._avatar.style.backgroundImage = `url(${avatar})`;
   }
 
-  setUserInfo({ name, about, avatar, id }) {
+  setUserInfo({ name, about, avatar, _id }) {
     this._userName.textContent = name;
     this._userJob.textContent = about;
     this._avatar.src = avatar;
-    this._id = id;
+    this._id = _id;
   }
+   getID() {
+    return this._id;
+  } 
 }

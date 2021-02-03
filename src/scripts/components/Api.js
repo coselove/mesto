@@ -1,7 +1,5 @@
-
-
 export default class Api {
-  constructor(url, token) {
+  constructor(url) {
     this._url = url;
     this._token = '291fbf0b-aea4-4df1-846d-97af6ab6d687';
     }
@@ -90,6 +88,27 @@ export default class Api {
      })
     } 
   
+  delCard(item) {
+    return fetch('https://mesto.nomoreparties.co/v1/cohort-19/' + item, {
+      method: "DELETE",
+      headers: {
+        authorization: this._token,
+      'Content-Type': 'application/json'
+      }
+    })
+    .then((res) => {
+      console.log('https://mesto.nomoreparties.co/v1/cohort-19/' + item);
+      if(res.ok) {
+    
+          return res.json();
+      }
+      return Promise.reject(`Ошибка: ${res.status}`)
+  })
+  .catch((err) => {
+      console.log(err)  
+    })
+  }
+
   addLike() {
     
   }  
