@@ -16,6 +16,7 @@ import "./index.css";
 import PopupWithDelete from "../scripts/components/PopupWithDelete.js";
 import Api from "../scripts/components/Api.js";
 
+let userId = '';
 
 const formValidatorEdit = new FormValidator(params.formSelectorPoup, params);
 formValidatorEdit.enableValidation();
@@ -27,10 +28,14 @@ const imagePopup = new PopupWithImage("#image");
 imagePopup.setEventListeners();
 
 const delPopup = new PopupWithDelete("#delete", {
-  submitFormHandler: (cardId, data, api) => {
+  submitFormHandler: (cardId, data) => {
     api.delCard(`cards/${cardId}`) 
   .then(() => {
-    data.remove()
+    data.remove();
+  }) 
+  .finally(() => {
+    delPopup.closePopup();
+    console.log(api);
   })
   }
 });
@@ -46,15 +51,14 @@ const createNewCard = (data) => {
   const card = new Card(
     {
       data: data,
-      userId: userInform.getUserInfo().id, 
+      userId, 
       handleCardClick: () => {
         imagePopup.openPopup(data);
       },
-      handleDeleteBtnClick: (cardId, data, api) => {
-        console.log('delete');
-        delPopup.openPopup(cardId, data, api);
-      },
-      api: api,
+      handleDeleteBtnClick: (cardId, data) => {
+        delPopup.openPopup(cardId, data);
+      }, 
+      api: api, /* userId: data.owner._id, */
     },
     "#card-template",
   );
@@ -130,24 +134,18 @@ const cardList = new Section(
   },
   ".elements"
 );
- 
+ /*
 api.getUserInfo()
   .then(res => {
     userInform.setUserInfo(res)
   })
-
+*/
 const popupProfile = new PopupWithForm({
   popupSelector: "#profile",
   submitFormHandler: (data) => {
     api.editProfile(data)
-  .then(res=>{
-    userInform.setUserInfo({
-      name: res['name'],
-      about: res['about'],
-     /* avatar: res['avatar'],
-      id: res['_id'] */
-    });
-    console.log(res['_id']); 
+  .then((data)=>{
+    userInform.setUserInfo(data);
   })  
   },
 }); 
@@ -158,11 +156,8 @@ const popupCard = new PopupWithForm({
   popupSelector: "#card",
   submitFormHandler: (data) => {
     api.addCard(data)
-    .then(res=>{
-      const cardNewElement = createNewCard({
-        link: res["link"],
-        name: res["name"],
-    })
+    .then((data) =>{
+      const cardNewElement = createNewCard(data)
     cardList.addItemPrepend(cardNewElement)
     }); 
   },
@@ -170,11 +165,26 @@ const popupCard = new PopupWithForm({
 
 popupCard.setEventListeners();
 
+Promise.all([
+  api.getUserInfo(),
+  api.getInitialCards()
+])
+.then((values) => {
+  const [userInfo, cards] = values;
+  userInform.setUserInfo({name: userInfo.name, about: userInfo.about, avatar: userInfo.avatar});
+  userId = userInfo._id;
+  cardList.renderItems(cards);
+})
+.catch((err) => {
+  console.log(err);
+})
+
+/*
 api.getInitialCards()
   .then(res => {
     cardList.renderItems(res);
   })
-
+*/
 /*
 const deletePopup = new PopupWithDelete("#delete");
 

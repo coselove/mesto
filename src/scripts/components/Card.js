@@ -22,17 +22,16 @@ export default class Card {
 
   _checkCardId() {
     return this._owner === this._userId;
-
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._setEventListeners();
     this._element.querySelector(".card__image").src = this._link;
     this._element.querySelector(".card__image").alt = this._name;
     this._element.querySelector(".card__image-caption").textContent = this._name; 
     this._element.querySelector(".card__like-counter").textContent = this._cardId.length;
     this._element.querySelector(".card__like-counter").classList.add("card__like-counter_active");  
-    this._setEventListeners();
     if (!this._checkCardId()) {
       this._element.querySelector(".card__trash").classList.add("card_trash-hidden"); 
     }  
@@ -76,10 +75,11 @@ export default class Card {
   }
 
   _deleteCard() {
-   this._element
+  /* this._element
     .parentElement
-    .querySelector(".card__trash").closest(".card"); 
+    .querySelector(".card__trash").closest(".card"); */
     this._element.remove(); 
+    this._element = null;
   }
 
 _count() {
@@ -103,10 +103,14 @@ _count() {
         this._count();
       });
 
-      this._element.querySelector(".card__trash").addEventListener("click", (evt) => {
-       this._cardElement = evt.target.parentElement.querySelector(".card__trash").closest(".card"); 
-       console.log(evt.target.parentElement);
-        this._handleDeleteBtnClick(this._cardId, this._cardElement, this._api);
+      this._element.querySelector(".card__trash")
+      .addEventListener("click", (evt) => {
+       this._cardElement = evt.target.parentElement
+       .querySelector(".card__trash").closest(".card"); 
+        this._handleDeleteBtnClick(
+          this._cardId, 
+          this._cardElement, 
+          this._api);
        /* console.log(this._cardId);
         console.log(this._cardElement);
         console.log(this._api); */

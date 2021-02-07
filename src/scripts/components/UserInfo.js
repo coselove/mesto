@@ -1,5 +1,5 @@
 export default class UserInfo {
-  constructor({ userName, userJob, avatar}) {
+  constructor({ userName, userJob, avatar }) {
     this._userName = userName;
     this._userJob = userJob;
     this._avatar = avatar;
